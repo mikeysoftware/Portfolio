@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 // Components
+import Input from "../components/Input";
+import Button from "../components/Button";
 import Heading from "../components/Heading";
+import TextArea from "../components/TextArea";
 import SubHeading from "../components/SubHeading";
 import Paragraph from "../components/Paragraph";
-import Button from "../components/Button";
 
 // Icons
-import { BatteryCharging, FaceID, Mail, Message } from "../components/Icons";
+import { FaceID, Message } from "../components/Icons";
 
 const SOCIAL_MEDIA = [
   { platform: "Twitter", logo: FaceID, link: "https://twitter.com/mikeysoftware", linkShort: "twitter.com/mikeysoftware" },
@@ -21,23 +23,24 @@ export default function Footer() {
     <FooterWrapper id="links">
       <FooterContainer>
         <ContactCopy>
-          {/* <BatteryCharging /> */}
-
-          <Heading level={2}>I'll log off when I'm dead.</Heading>
+          <SubHeading>What I'm Working On</SubHeading>
+          <Heading level={2}>Forever Building</Heading>
           <Paragraph>
-            I am a creative full-stack developer and open source enthusiast. I have an unwavering passion and energy for ux-guided interactive interfaces and
-            developer tooling.
+            <b>Velvety</b>
+            <br /> I am a creative full-stack developer and open source enthusiast. I have an unwavering passion and energy for ux-guided interactive interfaces
+            and developer tooling.
           </Paragraph>
-          {/* <a href="">
-            <Button>
-              Until then, Mail me <Message />
-            </Button>
-          </a> */}
+          <br />
+          <Paragraph>
+            <b>Velvety</b>
+            <br />I am a creative full-stack developer and open source enthusiast. I have an unwavering passion and energy for ux-guided interactive interfaces
+            and developer tooling.
+          </Paragraph>
 
           <ul>
             {SOCIAL_MEDIA.map((social) => (
               <li key={social.platform}>
-                <a className="social" href={social.link} target="_blank" rel="noreferrer">
+                <a href={social.link} target="_blank" rel="noreferrer">
                   <social.logo />
                   {/* <div className="platform">
                     <h4>{social.platform}</h4>
@@ -48,17 +51,18 @@ export default function Footer() {
             ))}
           </ul>
         </ContactCopy>
-        <ContactVisual>
-          {/* {SOCIAL_MEDIA.map((social) => (
-            <a key={social.platform} className="social" href={social.link} target="_blank" rel="noreferrer">
-              <social.logo />
-              <div className="platform">
-                <h4>{social.platform}</h4>
-                <span>{social.linkShort}</span>
-              </div>
-            </a>
-          ))} */}
-        </ContactVisual>
+        <ContactForm>
+          <Heading level={2}>I'll log off when I'm dead</Heading>
+          <Paragraph>Until then, feel free to get in contact with me with discussions, opportunities and/or feedback! .</Paragraph>
+          <div className="form">
+            <Input type="email" placeholder="Contact Email" />
+            <TextArea placeholder="Drop a Message" rows={4} />
+            {/* <input type="text" placeholder="asdsa" /> */}
+            <Button>
+              Until then, Mail me <Message />
+            </Button>
+          </div>
+        </ContactForm>
       </FooterContainer>
     </FooterWrapper>
   );
@@ -70,6 +74,7 @@ const FooterWrapper = styled.footer`
 
   /* Mobile */
   padding: 1.25rem;
+  padding-bottom: 4rem;
 
   /* Tablet */
   @media screen and (min-width: 1024px) {
@@ -81,11 +86,15 @@ const FooterContainer = styled.div`
   /* Default */
   max-width: var(--breakpoint-xl);
   margin: 0px auto;
+  padding: 2rem 0rem;
 
   /* Mobile */
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 0rem;
+  /* display: flex; */
+  /* flex-direction: column; */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+  /* grid-template-columns: 1fr; */
 
   /* Tablet */
   @media screen and (min-width: 768px) {
@@ -93,7 +102,9 @@ const FooterContainer = styled.div`
 
   /* Desktop */
   @media screen and (min-width: 1024px) {
-    flex-direction: row;
+    grid-template-rows: 1fr;
+    /* flex-direction: row; */
+    /* grid-template-columns: 2fr 1fr; */
   }
 
   /* Desktop XXL */
@@ -104,17 +115,22 @@ const FooterContainer = styled.div`
 
 const ContactCopy = styled.div`
   /* Default */
+  height: max-content;
   position: relative;
   padding: 3rem 1.5rem;
   padding-bottom: 1rem;
   background: var(--color-gray-700);
 
-  flex: 1;
+  /* Mobile */
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-  /* Mobile */
   ul {
     display: flex;
     align-items: center;
@@ -132,57 +148,92 @@ const ContactCopy = styled.div`
 
   /* Tablet */
   @media screen and (min-width: 768px) {
+    grid-column-start: 1;
+    grid-column-end: 11;
+    padding-bottom: 4rem;
   }
 
   /* Desktop */
   @media screen and (min-width: 1024px) {
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    padding-left: 3rem;
+    padding-right: 30%;
+    padding-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 `;
 
-const ContactVisual = styled.div`
+const ContactForm = styled.div`
   /* Default */
-  padding: 2rem 1.5rem;
+  z-index: 0;
+  padding: 3rem 1.5rem;
+  padding-bottom: 7rem;
   max-width: var(--breakpoint-lg);
   background: var(--color-gray-500);
 
-  flex: 1;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr;
+  -webkit-mask: url("/svg/mask-message-1.svg");
+  -webkit-mask-size: contain;
+  -webkit-mask-position: bottom;
+  mask: url("/svg/mask-message-1.svg");
+  mask-size: cover;
+  mask-position: bottom;
 
   /* Mobile */
-  /* padding: 1.5rem; */
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 2;
+  grid-row-end: 3;
 
-  .social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .form {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    flex-direction: column;
 
-    svg {
-      height: 3rem;
+    margin-top: 2rem;
+
+    input {
+      width: 100%;
+    }
+
+    textarea {
+      width: 100%;
+      margin-top: 2rem;
+    }
+
+    button {
+      width: 60%;
+      margin-top: 1.5rem;
+      margin-left: 1rem;
     }
   }
 
   /* Tablet */
   @media screen and (min-width: 768px) {
+    grid-column-start: 3;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin-top: -2.5rem;
+    padding: 3rem 2rem;
+    padding-bottom: 9rem;
   }
 
   /* Desktop */
   @media screen and (min-width: 1024px) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr;
-
-    .social {
-      h4 {
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-        margin-bottom: 0.25rem;
-      }
-      svg {
-        height: 5rem;
-      }
-    }
+    grid-column-start: 7;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    margin-top: 4rem;
+    padding: 3rem 3rem;
+    padding-bottom: 9rem;
   }
 `;

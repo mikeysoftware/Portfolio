@@ -1,14 +1,15 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-export default function Button({ children }: any) {
-  return <ButtonWrapper>{children}</ButtonWrapper>;
+export default function Button({ children, ...rest }: any) {
+  return <ButtonWrapper {...rest}>{children}</ButtonWrapper>;
 }
 
 const ButtonWrapper = styled.button`
   /* Mobile */
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 
   margin-top: 1rem;
   padding: 1rem 1rem;

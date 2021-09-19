@@ -20,14 +20,13 @@ export default function Header() {
             Making web <br />
             <span>inter-faces</span>, <span>inter-active</span>.
           </Heading>
-          <Paragraph>
-            I'm a creative full-stack engineer and open source enthusiast with an unwavering passion for ux-guided interactive interfaces and developer tooling.
-          </Paragraph>
+          <Paragraph>I'm a JavaScript Engineer and Open Source enthusiast specializing in experience-guided interfaces and developer tooling.</Paragraph>
           {/* Call to Actions */}
           <div className="cta">
             <a className="cta__projects" href="#projects">
               <Button>
-                View Featured Projects <ProjectDown />
+                View Featured Projects
+                {/* <ProjectDown /> */}
               </Button>
             </a>
             <a className="cta__resume" href="#resume">
@@ -44,7 +43,7 @@ export default function Header() {
             <button aria-label="Play Introduction Video">
               <PlayButton />
             </button>
-            <div className="overlay"></div>
+            <div className="overlay" />
           </div>
         </HeroVisual>
       </HeaderContainer>
@@ -55,6 +54,9 @@ export default function Header() {
 const HeaderWrapper = styled.header`
   /* Default */
   background: var(--color-gray-600);
+  /* background: var(--color-gray-900); */
+  /* background: var(--color-background); */
+  /* background: white; */
 
   /* Mobile */
   padding: 1.25rem;
@@ -150,13 +152,14 @@ const HeroVisual = styled.div`
     padding: 0rem 1rem;
     height: 16rem;
     margin-bottom: 1rem;
-    background: var(--color-gray-500);
+    /* background: var(--color-gray-500); */
 
     /* Mask Shape */
     -webkit-mask: url("/svg/mask-horizontal-1.svg");
     -webkit-mask-size: contain;
     mask: url("/svg/mask-horizontal-1.svg");
     mask-size: contain;
+    /* mask-repeat: no-repeat; */
 
     button:hover + div {
       opacity: 0.7;
@@ -199,7 +202,7 @@ const HeroVisual = styled.div`
       justify-content: center;
 
       /* Hover Effect */
-      opacity: 0.2;
+      opacity: 1;
       background: url("/images/thumbnail-gradient.jpg");
       background-size: cover;
       mix-blend-mode: hard-light;
@@ -207,7 +210,8 @@ const HeroVisual = styled.div`
       transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
 
       &:hover {
-        opacity: 0.7;
+        /* opacity: 0.7; */
+        opacity: 1;
         cursor: pointer;
         animation: bg-hue-animation 2.5s infinite;
       }

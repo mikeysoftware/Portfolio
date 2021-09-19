@@ -5,18 +5,21 @@ import styled from "styled-components";
 import { BatteryCharging, FaceID, Mail } from "../components/Icons";
 
 const DEV_STACK = [
-  { tech: "TypeScript", logo: FaceID, link: "https://twitter.com/mikeysoftware", linkShort: "twitter.com/mikeysoftware" },
-  { tech: "ReactJS", logo: FaceID, link: "https://github.com/mikeysoftware", linkShort: "github.com/mikeysoftware" },
-  { tech: "NodeJS", logo: FaceID, link: "https://www.linkedin.com/in/mikeysoftware/", linkShort: "linkedin.com/in/mikeysoftware" },
-  { tech: "React Native", logo: FaceID, link: "https://www.linkedin.com/in/mikeysoftware/", linkShort: "linkedin.com/in/mikeysoftware" },
+  { name: "TypeScript", logoPath: "/svg/typescript.svg", link: "https://twitter.com/mikeysoftware", linkShort: "twitter.com/mikeysoftware" },
+  { name: "ReactJS", logoPath: "/svg/react.svg", link: "https://github.com/mikeysoftware", linkShort: "github.com/mikeysoftware" },
+  { name: "NodeJS", logoPath: "/svg/node.svg", link: "https://www.linkedin.com/in/mikeysoftware/", linkShort: "linkedin.com/in/mikeysoftware" },
+  { name: "VSCode", logoPath: "/svg/vscode.svg", link: "https://www.linkedin.com/in/mikeysoftware/", linkShort: "linkedin.com/in/mikeysoftware" },
+  { name: "Docker", logoPath: "/svg/docker.svg", link: "https://www.linkedin.com/in/mikeysoftware/", linkShort: "linkedin.com/in/mikeysoftware" },
 ];
 
 export default function TechnologyStack() {
   return (
     <StackWrapper>
-      {DEV_STACK.map((job: any) => (
-        <StackItem key={job?.tech}>
-          <div className="logo">***</div>
+      {DEV_STACK.map((tech: any) => (
+        <StackItem key={tech?.name}>
+          <div className="logo">
+            <img src={tech?.logoPath} alt={tech.name} />
+          </div>
         </StackItem>
       ))}
     </StackWrapper>
@@ -42,17 +45,34 @@ const StackItem = styled.li`
 
   /* Mobile */
   .logo {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 0.25rem;
-    background: var(--color-gray-500);
+    background: var(--color-gray-900);
+    /* transform: rotate(10deg); */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.125rem;
+      /* transform: rotate(-10deg); */
+    }
   }
 
   /* Desktop */
   @media screen and (min-width: 1024px) {
     .logo {
-      width: 5rem;
-      height: 5rem;
+      width: 4rem;
+      height: 4rem;
+
+      img {
+        width: 2.75rem;
+        height: 2.75rem;
+      }
     }
   }
 `;

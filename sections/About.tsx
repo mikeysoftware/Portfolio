@@ -6,14 +6,10 @@ import SubHeading from "../components/SubHeading";
 import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
 import ExperienceList from "../components/ExperienceList";
-
-// Interfaces
-interface TopicSwitchProps {
-  selected: Boolean;
-}
+import SyntaxHighlighter, { Line } from "../components/SyntaxHighlighter";
 
 // Icons
-import { CurvedArrowRight, Download } from "../components/Icons";
+import { Download } from "../components/Icons";
 
 const EXP_LIST = [
   {
@@ -29,17 +25,14 @@ const EXP_LIST = [
     position: "Software Developer",
   },
   {
-    company: "Juici Beef Limited",
-    position: "Systems Administrator",
-  },
-  {
     company: "Outlance Software",
     position: "Software Consultant",
   },
+  {
+    company: "Juici Beef Limited",
+    position: "Systems Administrator",
+  },
 ];
-
-const WORK_TOPICS = ["Smart Mobile Solutions", "Advantage General Insurance", "A&S Technosoft Limited", "Juici Beef Limited", "Outlance Software"];
-const TRAINING_TOPICS = ["BSc Software Engineering", "Epic React - Certified", "CompTIA - A+", "Cisco - IT Fundamentals"];
 
 export default function About() {
   return (
@@ -50,8 +43,7 @@ export default function About() {
           <SubHeading>Skills &amp; Experience</SubHeading>
           <Heading level={2}>Googling my way to retirement.</Heading>
           <Paragraph>
-            I am a creative full-stack developer and open source enthusiast. I have an unwavering passion and energy for ux-guided interactive interfaces and
-            developer tooling.
+            I'm a creative full-stack engineer and open source enthusiast with an unwavering passion for ux-guided interactive interfaces and developer tooling.
           </Paragraph>
 
           <a className="download" href="">
@@ -67,9 +59,117 @@ export default function About() {
         </AboutInformation>
         <AboutCode>
           <div className="code-container">
-            <pre>
-              <code>asdasdasdasds</code>
-            </pre>
+            <SyntaxHighlighter>
+              <Line number={1}>
+                <span className="keyword">const</span>
+                <span className="variable"> About</span> = &#123;
+              </Line>
+              <Line number={2} tabs={1}>
+                <span className="key">name</span>: <span className="string">&#39;Michael Cowan&#39;</span>,
+              </Line>
+              <Line number={2} tabs={1}>
+                <span className="key">occupation</span>: <span className="string">&#39;Senior Software Engineer&#39;</span>,
+              </Line>
+              <Line number={3} tabs={1}>
+                <span className="key">experienceInYears</span>: <span className="integer">4</span>,
+              </Line>
+              <Line number={4} tabs={1}>
+                <span className="key">education</span>: <span className="string">&#39;Bachelors in Software Engineering&#39;</span>,
+              </Line>
+              <Line number={5} tabs={1}>
+                <span className="key">socials</span>: [
+              </Line>
+              <Line number={6} tabs={2}>
+                <span className="string">&#39;https://www.twitter.com/mikeysoftware&#39;</span>,
+              </Line>
+              <Line number={2} tabs={2}>
+                <span className="string">&#39;https://www.github.com/mikeysoftware&#39;</span>,
+              </Line>
+              <Line number={2} tabs={2}>
+                <span className="string">&#39;https://www.linkedin.com/in/mikeysoftware&#39;</span>,
+              </Line>
+              <Line number={2} tabs={1}>
+                ]
+              </Line>
+              <Line number={2}>&#125;</Line>
+              {/* Spacer */}
+              <Line number={1}></Line>
+              {/* Technologies */}
+              <Line number={1}>
+                <span className="keyword">const</span>
+                <span className="variable"> Technologies</span> = &#123;
+              </Line>
+              <Line number={5} tabs={1}>
+                <span className="key">frontend</span>: [
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;React JS&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Next JS&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;React Native&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Styled Components&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Framer Motion&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;React JS&#39;</span>,
+              </Line>
+              <Line number={2} tabs={1}>
+                ],
+              </Line>
+              <Line number={5} tabs={1}>
+                <span className="key">backend</span>: [
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Node JS&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Express&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;PostgreSQL&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;MongoDB&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;RabbitMQ&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Redis&#39;</span>,
+              </Line>
+              <Line number={2} tabs={1}>
+                ],
+              </Line>
+              <Line number={5} tabs={1}>
+                <span className="key">tooling</span>: [
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Jest&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Cypress&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Socket IO&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Swagger Docs&#39;</span>,
+              </Line>
+              <Line number={2} tabs={3}>
+                <span className="string">&#39;Docker&#39;</span>,
+              </Line>
+              <Line number={2} tabs={1}>
+                ]
+              </Line>
+              <Line number={2}>&#125;</Line>
+            </SyntaxHighlighter>
           </div>
         </AboutCode>
       </AboutContainer>
@@ -155,29 +255,23 @@ const AboutInformation = styled.div`
 
 const AboutCode = styled.div`
   /* Default */
-  display: flex;
+  /* display: none; */
   flex-direction: column;
 
   .code-container {
-    /* border-radius: 0.5rem; */
     padding: 0.125rem;
+    border-radius: 0.25rem;
     background: var(--color-gray-700);
-
-    pre {
-      padding: 1rem;
-      background: var(--color-gray-700);
-    }
   }
 
   /* Tablet */
   @media screen and (min-width: 768px) {
+    display: flex;
     padding: 1rem;
 
     .code-container {
       flex: 1;
       margin-top: -12rem;
-      pre {
-      }
     }
   }
 
@@ -185,9 +279,6 @@ const AboutCode = styled.div`
   @media screen and (min-width: 1024px) {
     .code-container {
       /* margin-top: -14rem; */
-      pre {
-        padding: 2rem;
-      }
     }
   }
 `;

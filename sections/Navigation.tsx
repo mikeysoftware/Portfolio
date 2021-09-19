@@ -23,7 +23,7 @@ export default function Navigation() {
     <NavigationWrapper>
       <NavigationContainer>
         <div className="nav__start">
-          <PlaceHolder />
+          {/* <PlaceHolder /> */}
           PlaceHolder
         </div>
         <div className="nav__center">

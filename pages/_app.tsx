@@ -120,7 +120,7 @@ const GlobalStyle = createGlobalStyle`
     --breakpoint-md: 48rem; // 768px
     --breakpoint-lg: 64rem; // 1024px
     --breakpoint-xl: 80rem; // 1280px
-    --breakpoint-xxl: 96rem; // 1536px
+    --breakpoint-xxl: 100rem; // 1536px
 
     /* Colors */
     --color-gray-50: #F9FAFB;
@@ -133,6 +133,17 @@ const GlobalStyle = createGlobalStyle`
     --color-gray-700: #374151;
     --color-gray-800: #1F2937;
     --color-gray-900: #111827;
+
+    /* Code */
+    --color-code-keyword: #9D7CD8;
+    --color-code-variable: #2AC3DE;
+    --color-code-key: #7AA2F7;
+    --color-code-string: #9ECE6A;
+    --color-code-integer: #FF9E64;
+
+    /* --color-baby: #00EAFF; */
+    /* --color-lavender: #BADAFF; */
+    /* --color-background: #303E57; */
   }
 `;
 
